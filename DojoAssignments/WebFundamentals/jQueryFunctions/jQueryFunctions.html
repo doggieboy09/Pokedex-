@@ -1,0 +1,21 @@
+<!DOCTYPE>
+<html>
+<head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+     $(document).ready(function(){
+    console.log('document.ready  jQuery is ready');
+
+     $('button').click(function(){
+        $('#myParagraph').text('see how I .text() works as a setter!');
+    });
+ })
+
+ console.log('hello world');
+     </script>
+</head>
+<body>
+    <p id='myParagraph'>This is my paragraph</p>
+    <button>Click me to change the paragraph!</button>
+</body>
+</html>
