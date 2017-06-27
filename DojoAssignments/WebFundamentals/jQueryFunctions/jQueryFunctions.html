@@ -6,16 +6,140 @@
      $(document).ready(function(){
     console.log('document.ready  jQuery is ready');
 
-     $('button').click(function(){
+    // .click
+     $('#para').click(function(){
         $('#myParagraph').text('see how I .text() works as a setter!');
     });
+    //.hide & .show
+       $(".btn1").click(function(){
+        $("p1").hide();
+    });
+    $(".btn2").click(function(){
+        $("p1").show();
+    });
+    //.toggle
+     $("#toggle").click(function(){
+        $("p2").toggle();
+    });
+    //.slideup & .slidedown
+     $(".up").click(function(){
+        $("p5").slideUp();
+    });
+    $(".down").click(function(){
+        $("p5").slideDown();
+    });
+    //.fadeOut & .fadeIN
+     $(".out").click(function(){
+        $("p6").fadeOut()
+    });
+    $(".in").click(function(){
+        $("p6").fadeIn();
+    });
+    //.addClass
+    $("#classed").click(function(){
+        $("#first").addClass("intro");
+    });
+    //.before & .after
+      $("#after").click(function(){
+        $("p9").after("<p9> This is after</p9>");
+    });
+     $("#before").click(function(){
+        $("p9").before("<p9>This is before </p9>");
+    });
+    // .appended
+     $("#appended").click(function(){
+        $("#append").append(" <b>(o^^)o</b>.");
+    });
+    //html
+     $("#waffle").click(function(){
+        $("p10").html("<b>(ノ￣ー￣)ノ</b>");
+    });
+    //.attr
+    $("#att").click(function(){
+        $("img").attr("width", "500");
+    });
+    //.val
+    $("#input").click(function(){
+        $("input:text").val("Glenn Quagmire");
+    });
+    //.text
+      $("#there").click(function(){
+        $("p11").text("Hello world!");
+    });
+    //.data
+    $("#btnz").click(function(){
+        $("div").data("greeting", "Hello World");
+    });
+    $("#btnx").click(function(){
+        alert($("div").data("greeting"));
+    });
+
+
  })
 
  console.log('hello world');
      </script>
+     <style>
+.intro {
+    font-size: 150%;
+    color: red;
+}
+</style>
 </head>
 <body>
     <p id='myParagraph'>This is my paragraph</p>
-    <button>Click me to change the paragraph!</button>
+    <button id="para">Click me to change the paragraph!</button>
+  
+  <br>
+  <p1>(^･ｪ･^)</p1>
+  <br>
+<button class="btn1">Hide</button>
+<button class="btn2">Show</button>
+<br>
+<p2>(❍ᴥ❍ʋ)</p2>
+<button id="toggle">Toggle between hide() and show()</button>
+<br>
+<p5>(⁎˃ᆺ˂)</p5>
+<br>
+<button class="up">Slide up</button>
+<button class="down">Slide down</button>
+<br>
+<p6>(ʃƪ¬‿¬)</p6>
+<br>
+<button class="out">Fade out</button>
+<button class="in">Fade in</button>
+<h1>This is a heading</h1>
+<p id="first">This section will change class and color.</p>
+<p >This is another paragraph.</p>
+<button id="classed">This button will change the class of the second sentence</button>
+<br>
+<button id="before">Before</button>
+<button id="after">After</button>
+<br>
+<p9>／(・x・)＼</p9>
+<p id="append">Append here==></p>
+<button id="appended">Append (o^^)o</button>
+<br>
+<button id="waffle">Change content of all ヾ(^^ゞ) elements to (ノ￣ー￣)ノ</button>
+<p10>ヾ(^^ゞ)</p10>
+<p10>ヾ(^^ゞ)</p10>
+<br>
+<img src="img_pulpitrock.jpg" alt="Pulpit Rock" width="284" height="213"><br>
+
+<button id="att">Set the width attribute of the image</button>
+<br>
+<p>Name: <input type="text" name="user"></p>
+
+<button id="input">Set the value of the input field</button>
+<br>
+<button id="there">Set text content for all p11 elements</button>
+
+<p11>This is a paragraph.</p11>
+<p11>This is another paragraph.</p11>
+
+<button id="btnz">Attach data to div element</button><br>
+<button id="btnx">Get data attached to div element</button>
+
+<div></div>
 </body>
 </html>
