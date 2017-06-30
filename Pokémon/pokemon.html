@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <title>HTTP Pokémon Request Response </title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+     
+     $(document).ready(function(){
+      console.log("jquery ready")
+      var htmlstr = "";
+      for (var i = 1; i <= 151; i++) {
+        htmlstr += "<div><img src=" + 'http://pokeapi.co/media/img/' + i + '.png' + " id=" + i + "></div>"
+    }
+      $('#pokemon').html(htmlstr);
+
+      bindEvent()
+ });
+
+ function bindEvent() {
+  $('img').click(function() {
+        makeCall($(this).attr('id'));   //grabs the id number and that becomes num
+    });
+}
+
+function makeCall(num) {          // because of the bindEvent function, we are able to get [num] from the [id] 
+    var url = 'http://pokeapi.co/api/v1/pokemon/';
+    $.get(url + num + '/', function(response) {
+        populate(response, num);
+        console.log('Pokemon Index #: '+num);
+    }, 'json');
+    
+}
+
+function populate(response, num) {
+    console.log("Below is all that API stuff: ")
+    console.log(response);
+    $('#name').html(response.name);
+    console.log(response.name);
+    $('#pokeimg').html('<img src="http://pokeapi.co/media/img/' + num + '.png">');
+    $('#height').html(response.height);
+    console.log("Height: "+response.height);
+    $('#weight').html(response.weight);
+    console.log("Weight: "+response.weight);
+    var htmlstr = "<ul>";
+    for (var i = 0; i < response.types.length; i++) {
+        htmlstr += "<li>" + response.types[i].name + "</li>";
+    }//console.log(response.types[i].name);
+    htmlstr += "</ul>"
+    $('#types').html(htmlstr);
+}
+    
+
+   
+      
+    </script>
+  </head>
+  <body>
+<div id=container>
+<div class="col-md-10" id="pokemon">
+
+ </div>
+        <div class="col-md-2" id="pokedex">
+            <h2 id="name"></h2>
+            <span id="pokeimg"></span>
+            <h3>Types</h3>
+            <span id="types"></span>
+            <h3>Height</h3>
+            <span id="height"></span>
+            <h3>Weight</h3>
+            <span id="weight"></span>
+        </div>
+</div>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+img{
+	 width: 60px;
+   height: 60px;
+}
+
+.col-md-10 div {
+    display: inline;
+}
+#pokedex {
+    float: right;
+  
+    border: 3px solid red;
+    padding: 10px;
+}
